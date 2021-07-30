@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import RoomIcon from '@material-ui/icons/Room';
 
 function Header(){
     return(
@@ -14,8 +15,11 @@ function Header(){
 
 
             <HeaderOptionAddress>
-                <OptionLineOne>Hello</OptionLineOne>
-                <OptionLineTwo>Select your address</OptionLineTwo>
+                <RoomIcon/>
+                <HeaderOption>
+                     <OptionLineOne>Hello</OptionLineOne>
+                     <OptionLineTwo>Select your address</OptionLineTwo>
+                </HeaderOption>
             </HeaderOptionAddress>
 
 
@@ -42,6 +46,10 @@ function Header(){
 
                 <HeaderOptionCart>
                     <ShoppingCartIcon/>
+                    <CartCount>
+                    4
+                    </CartCount>
+                
                 </HeaderOptionCart>
                 
             </HeaderNavitems>
@@ -73,6 +81,9 @@ const HeaderLogo = styled.div`
 `
 
 const HeaderOptionAddress = styled.div`
+    padding-left:12px;
+    display:flex;
+    align-item:center;
 `
 const OptionLineOne = styled.div`
 
@@ -82,10 +93,30 @@ const OptionLineTwo = styled.div`
 `
 const HeaderSearch = styled.div`
     display:flex;
+    flex-grow:1;
+    height:40px; 
+    border-radius:4px;
+    overflow:hidden;
+    margin-left:5px;
+    background-colour:white;
+    :focus-within{
+        box-shadow:0 0 0 3px #F90;
+    }
 `
 const HeaderSearchInput = styled.input`
+    flex-grow:1;
+    border:0;
+    :focus{
+        outline:none;
+    }
  `
 const HeaderSearchIconContainer = styled.div`
+    background-color: #febd69;
+    width:45px;
+    color:black;
+   display:flex;
+   justify-content:center;
+   align-items:center;
 `
 const HeaderNavitems = styled.div`
     display:flex;
@@ -95,7 +126,15 @@ const HeaderOptions = styled.div`
     padding: 10px 9px 10px 9px;
 `
 const HeaderOptionCart = styled.div`
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding-right:4px;
+`
+const HeaderOption = styled.div`
+    padding-left:5px;
 `
 const CartCount = styled.div`
+    font-size:13px;
 `
 
