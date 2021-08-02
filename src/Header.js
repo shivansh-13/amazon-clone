@@ -3,61 +3,64 @@ import styled from 'styled-components';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import RoomIcon from '@material-ui/icons/Room';
+import { Link } from "react-router-dom";
 
-function Header(){
-    return(
-        
+function Header() {
+    return (
+
         <Container>
 
             <HeaderLogo>
-                <img src={"https://i.imgur.com/7I9Was5.png"}/> 
+                <img src={"https://i.imgur.com/7I9Was5.png"} />
             </HeaderLogo>
 
 
             <HeaderOptionAddress>
-                <RoomIcon/>
+                <RoomIcon />
                 <HeaderOption>
-                     <OptionLineOne>Hello</OptionLineOne>
-                     <OptionLineTwo>Select your address</OptionLineTwo>
+                    <OptionLineOne>Hello</OptionLineOne>
+                    <OptionLineTwo>Select your address</OptionLineTwo>
                 </HeaderOption>
             </HeaderOptionAddress>
 
 
             <HeaderSearch>
 
-                <HeaderSearchInput type='text'/>
-                
+                <HeaderSearchInput type='text' />
+
                 <HeaderSearchIconContainer>
-                    <SearchIcon/>
+                    <SearchIcon />
                 </HeaderSearchIconContainer>
 
             </HeaderSearch>
 
             <HeaderNavitems>
                 <HeaderOptions>
-                <OptionLineOne>Hello,Shivansh</OptionLineOne>
-                <OptionLineTwo>Accounts & Lists</OptionLineTwo>
+                    <OptionLineOne>Hello,Shivansh</OptionLineOne>
+                    <OptionLineTwo>Accounts & Lists</OptionLineTwo>
                 </HeaderOptions>
 
                 <HeaderOptions>
-                <OptionLineOne>Return</OptionLineOne>
-                <OptionLineTwo>& Order</OptionLineTwo>
+                    <OptionLineOne>Return</OptionLineOne>
+                    <OptionLineTwo>& Order</OptionLineTwo>
                 </HeaderOptions>
 
                 <HeaderOptionCart>
-                    <ShoppingCartIcon/>
-                    <CartCount>
-                    4
-                    </CartCount>
-                
+                    <Link to="/cart">
+                        <ShoppingCartIcon />
+                        <CartCount>
+                            4
+                        </CartCount>
+                    </Link>
                 </HeaderOptionCart>
-                
+
+
             </HeaderNavitems>
 
 
 
-        </Container>
-    
+        </Container >
+
     )
 }
 
@@ -127,9 +130,14 @@ const HeaderOptions = styled.div`
 `
 const HeaderOptionCart = styled.div`
     display:flex;
-    align-items:center;
-    justify-content:center;
-    padding-right:4px;
+    a{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding-right:4px;
+        color:white;
+        text-decoration:none;
+    }
 `
 const HeaderOption = styled.div`
     padding-left:5px;

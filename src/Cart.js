@@ -4,7 +4,7 @@ import styled from 'styled-components';
 function Cart() {
     return (
         <div>
-            hvhvjcjgcjgc
+            cart
         </div>
     )
 }
