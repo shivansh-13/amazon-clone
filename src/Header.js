@@ -146,5 +146,7 @@ const HeaderOption = styled.div`
 `
 const CartCount = styled.div`
     font-size:13px;
+    font-weight:700;
+    color:#f08804;
 `
 

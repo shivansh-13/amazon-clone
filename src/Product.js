@@ -6,14 +6,16 @@ function Product(props) {
     return (
         <Container>
             <Title>
-            {props.title}
+                {props.title}
             </Title>
             <Price>
-               {props.prics}
+                {props.price}
             </Price>
             <Rating>
                 {
-                    Array(rating)
+                    Array(props.rating)
+                        .fill()
+                        .map(rating => <p>⭐️</p>)
                 }
             </Rating>
             <Image src={props.image} />
@@ -48,6 +50,7 @@ const Price = styled.span`
 
 `
 const Rating = styled.div`
+     display:flex;
 `
 const Actionsection = styled.div`
     display:grid;
