@@ -2,19 +2,21 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Product() {
+function Product(props) {
     return (
         <Container>
             <Title>
-                2021 Apple iPad Pro with Apple M1 chip (12.9-inch/32.77 cm, Wi-Fi + Cellular, 128GB) - Space Grey (5th Generation)
+            {props.title}
             </Title>
             <Price>
-                ₹1,13,900.00
+               {props.prics}
             </Price>
             <Rating>
-                ⭐️⭐️⭐️⭐️⭐️
+                {
+                    Array(rating)
+                }
             </Rating>
-            <Image src='https://images-na.ssl-images-amazon.com/images/I/81sxRBhe2sS._SX679_.jpg' />
+            <Image src={props.image} />
             <Actionsection>
                 <AddToCartButton>
                     Add To Cart
@@ -42,6 +44,7 @@ const Title = styled.span`
 const Price = styled.span`
     font-weight:500;
     margin-top: 3px;
+    color:#B12704;
 
 `
 const Rating = styled.div`
