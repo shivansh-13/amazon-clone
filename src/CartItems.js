@@ -29,13 +29,13 @@ function CartItems({ cartItems } ) {
 export default CartItems
 
 const Container = styled.div`
-    height:300px;
+
     background-color:white;
     flex:0.8;
     padding:20px;
     margin-right: 18px;
 `
-const Title = styled.div`
+const Title = styled.h1 `
     font-weight: 700;
      font-size: 24px;
 `

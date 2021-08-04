@@ -1,8 +1,27 @@
 // import { Container } from '@material-ui/core'
 import React from 'react'
 import styled from 'styled-components'
+import { db } from './firebase';
 
 function Product(props) {
+
+    const addToCart = () => {
+        const cartItem = db.collection("cartItems").doc(props.id);
+        cartItem.get().then((doc) => {
+            if (doc.exists) {
+                cartItem.update({
+                    quantity: doc.data().quantity + 1
+                })
+            } else {
+                db.collection("cartItems").doc(props.id).set({
+                    name: props.title,
+                    image: props.image,
+                    price: props.price,
+                    quantity: 1
+                })
+            }
+        })
+    }
     return (
         <Container>
             <Title>
@@ -20,7 +39,7 @@ function Product(props) {
             </Rating>
             <Image src={props.image} />
             <Actionsection>
-                <AddToCartButton>
+                <AddToCartButton onClick = {addToCart}>
                     Add To Cart
                 </AddToCartButton>
             </Actionsection>
@@ -67,4 +86,5 @@ const AddToCartButton = styled.button`
     background-color:#f0c14b;
     border: 2px solid #a88734;
     border-radius:2px;
+    cursor:pointer; 
 `

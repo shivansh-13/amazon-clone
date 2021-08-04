@@ -3,6 +3,12 @@ import styled from 'styled-components'
 
 
 function CartItem({ id, item }) {
+
+
+    let options = []
+    for(let i = 1; Math.max(item.quantity+1 , 20); i++){
+        options.push(<option value = {i}> Qty:{i}</option>)
+    }
     return (
         <Container>
             <CartItemImage>
@@ -22,6 +28,9 @@ function CartItem({ id, item }) {
                 </CartItemInfoBottom>
             </CartItemInfo>
             <CartItemPrice>
+            <select>
+                    <options value></options>
+            </select>
                 {item.price}
             </CartItemPrice>
         </Container>
@@ -50,6 +59,7 @@ const CartItemImage = styled.div`
     }
 `
 const CartItemInfo = styled.div`
+    flefx-grow:1;
 `
 const CartItemInfoTop = styled.div`
     color:#007185;
