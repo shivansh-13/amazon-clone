@@ -2,19 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-function CartItem() {
+function CartItem({ id, item }) {
     return (
         <Container>
             <CartItemImage>
-                <img src={"https://images-na.ssl-images-amazon.com/images/I/41LT40rrSrL.jpg"} />
+                <img src={item.image} />
             </CartItemImage>
             <CartItemInfo>
                 <CartItemInfoTop>
-                    <h2>Nike Men's Free Rn 5.0 2020 Running Shoes</h2>
+                    <h2>{item.name}</h2>
                 </CartItemInfoTop>
                 <CartItemInfoBottom>
                     <CartItemQuantityContainer>
-                        5
+                        {item.quantity}
                     </CartItemQuantityContainer>
                     <CartItemDeleteButton>
                         delete
@@ -22,7 +22,7 @@ function CartItem() {
                 </CartItemInfoBottom>
             </CartItemInfo>
             <CartItemPrice>
-                ₹6,316.00
+                {item.price}
             </CartItemPrice>
         </Container>
     )

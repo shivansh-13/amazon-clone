@@ -12,7 +12,7 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   const getCartItems = () => {
-    db.collection('catiItems').onSnapshot((snapshot) => {
+    db.collection('cartItems').onSnapshot((snapshot) => {
       const tempItems = snapshot.docs.map((doc) => ({
         id: doc.id,
         product: doc.data()
@@ -26,14 +26,13 @@ function App() {
     getCartItems();
   }, []);
 
-
   return (
     <BrowserRouter>
       <div className="App">
         <Header />
         <Switch>
           <Route path="/cart">
-            <Cart />
+            <Cart cartItems = {cartItems}/>
           </Route>
 
           <Route path="/">

@@ -4,7 +4,7 @@ import CartItem from './CartItem'
 
 
 
-function CartItems() {
+function CartItems({ cartItems } ) {
     return (
         <Container>
             <Title>
@@ -12,7 +12,15 @@ function CartItems() {
             </Title>
             <hr/>
             <ItemsContainer>
-                <CartItem/>
+            {
+                cartItems.map((item)=>(
+                    <CartItem
+                        id = {item.id}
+                        item = {item.product}
+                    />
+                ))
+            }
+               
             </ItemsContainer>
         </Container>
     )
