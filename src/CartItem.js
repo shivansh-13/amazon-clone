@@ -6,9 +6,10 @@ function CartItem({ id, item }) {
 
 
     let options = []
-    for(let i = 1; Math.max(item.quantity+1 , 20); i++){
-        options.push(<option value = {i}> Qty:{i}</option>)
+    for (let i = 1; Math.max(item.quantity + 1, 20); i++) {
+        options.push(<option value={i}> Qty:{i}</option>)
     }
+    
     return (
         <Container>
             <CartItemImage>
@@ -20,7 +21,9 @@ function CartItem({ id, item }) {
                 </CartItemInfoTop>
                 <CartItemInfoBottom>
                     <CartItemQuantityContainer>
-                        {item.quantity}
+                        <select value={item.quantity}>
+                            {options}
+                        </select>
                     </CartItemQuantityContainer>
                     <CartItemDeleteButton>
                         delete
@@ -28,9 +31,6 @@ function CartItem({ id, item }) {
                 </CartItemInfoBottom>
             </CartItemInfo>
             <CartItemPrice>
-            <select>
-                    <options value></options>
-            </select>
                 {item.price}
             </CartItemPrice>
         </Container>
