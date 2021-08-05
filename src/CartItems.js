@@ -34,6 +34,7 @@ const Container = styled.div`
     flex:0.8;
     padding:20px;
     margin-right: 18px;
+    border-radius:20px;
 `
 const Title = styled.h1 `
     font-weight: 700;
