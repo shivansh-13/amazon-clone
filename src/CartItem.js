@@ -1,15 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
 import NumberFormat from 'react-number-format';
+import { db } from './firebase';
 
 
-function CartItem({ quantity, item }) {
+function CartItem({ id, item }) {
 
-    let options = [] ;
-    for (let i = 1 ; i<Math.max(item.quantity + 1, 21) ; i++) {
-    options.push(<option value={i}> Qty:{i}</option>)
+    let options = [];
+    for (let i = 1; i < Math.max(item.quantity + 1, 21); i++) {
+        options.push(<option value={i}> Qty:{i}</option>)
     };
 
+    const changeQuantity = (newQuantity) => {
+        db.collection('cartItems').doc(id).update({
+            quantity: parseInt(newQuantity)
+        })
+    }
+    const deleteItem = (e) => {
+        // e.preventDefault()
+        db.collection('cartItems').doc(id).delete()
+
+    }
 
     return (
         <Container>
@@ -24,17 +35,19 @@ function CartItem({ quantity, item }) {
                     <CartItemQuantityContainer>
                         <select
                             value={item.quantity}
+                            onChange={(e) => changeQuantity(e.target.value)}
                         >
                             {options}
                         </select>
                     </CartItemQuantityContainer>
-                    <CartItemDeleteButton>
+                    <CartItemDeleteButton
+                        onClick={deleteItem}>
                         Delete
                     </CartItemDeleteButton>
                 </CartItemInfoBottom>
             </CartItemInfo>
             <CartItemPrice>
-            <NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} prefix={'₹'} />
+                <NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} prefix={'₹'} />
             </CartItemPrice>
         </Container>
     )
