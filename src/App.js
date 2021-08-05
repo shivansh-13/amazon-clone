@@ -29,7 +29,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
+        <Header cartItems = {cartItems}/>
         <Switch>
           <Route path="/cart">
             <Cart cartItems = {cartItems}/>

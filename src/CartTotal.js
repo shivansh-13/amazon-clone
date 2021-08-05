@@ -19,4 +19,5 @@ const Container = styled.div`
      background-color:white;
      flex :0.2;
      padding:20px;
+     border-radius: 20px;
 `
